@@ -1,0 +1,7 @@
+git config --global user.name Celica-cmd
+git config --global user.email cesarborazio@gmail.com
+
+dotnet new mvc -o Pokedex
+
+Abrir o Terminal: Ctrl + '
+
