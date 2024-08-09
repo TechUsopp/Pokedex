@@ -5,3 +5,5 @@ dotnet new mvc -o Pokedex
 
 Abrir o Terminal: Ctrl + '
 
+git config --global user.name TechUsopp
+git config --global user.email kevin1080.mdm@gmail.com
