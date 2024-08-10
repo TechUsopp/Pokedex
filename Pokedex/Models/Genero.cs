@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pokedex.Models;
 
-
 [Table("Genero")]
 public class Genero 
     {
