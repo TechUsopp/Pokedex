@@ -15,7 +15,7 @@ public class Tipo
     public string Nome { get; set; }
 
     [Required(ErrorMessage = "Informe a cor")]
-    [StringLength(25, ErrorMessage = "A cor deve possuir no máximo 25 caracteres")]
+    [StringLength(25, ErrorMessage = "A Cor deve possuir no máximo 25 caracteres")]
     public string Cor { get; set; }
 
     public ICollection<PokemonTipo> Pokemons { get; set; }
