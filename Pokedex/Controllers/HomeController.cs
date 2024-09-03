@@ -4,7 +4,6 @@ using Pokedex.Data;
 using Pokedex.Models;
 using Microsoft.EntityFrameworkCore;
 using Pokedex.ViewModels;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Pokedex.Controllers;
 
@@ -25,13 +24,14 @@ public class HomeController : Controller
         {
             Tipos = _context.Tipos.ToList(),
             Pokemons = _context.Pokemons
-            .Include(p => p.Tipos)
-            .ThenInclude(pt => pt.Tipo)
-            .ToList()
-        }; 
+                .Include(p => p.Tipos)
+                .ThenInclude(pt => pt.Tipo)
+                .ToList()
+        };
         return View(home);
     }
 
+    [HttpGet]
     public IActionResult Details(int id)
     {
         Pokemon pokemon = _context.Pokemons
@@ -46,8 +46,8 @@ public class HomeController : Controller
             Atual = pokemon,
             Anterior = _context.Pokemons
                 .OrderByDescending(p => p.Numero)
-                .FirstOrDefault(p => p.Numero > id),
-            Proximo =_context.Pokemons
+                .FirstOrDefault(p => p.Numero < id),
+            Proximo = _context.Pokemons
                 .OrderBy(p => p.Numero)
                 .FirstOrDefault(p => p.Numero > id)
         };
